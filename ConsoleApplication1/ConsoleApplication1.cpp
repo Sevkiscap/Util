@@ -24,9 +24,10 @@ int main()
     }
     size_t length = sizeof(intArray) / sizeof(intArray[0]);
 
-    for (size_t x = 0; x > length; x++) {
+    for (size_t x = 0; x < length; x++) {
         std::cout << intArray[x];
     }
 }
 
+//sources used: https://www.techiedelight.com/print-contents-array-cpp/
 
