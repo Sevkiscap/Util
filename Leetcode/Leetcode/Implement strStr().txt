@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.size()==0){
+			return 0;
+		}
+        int s = haystack.size();
+        for(int i; i<=s;i++){
+            if (haystack[i] == needle[0]){
+                int a = 0;
+                for(; a<needle.size();a++){
+                    if(haystack[i+a] != needle[a]) break;
+                }
+                if(a==needle.size()) return i;
+            }
+        }
+        return -1;
+    }
+};
