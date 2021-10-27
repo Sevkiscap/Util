@@ -1,0 +1,46 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int first = 0;
+        int second = 0;
+        int total = (m+n);
+        
+        vector<int> ans(total,0);
+        if(n != 0){
+            for (int i = 0; i < total; i++){
+                if(second >= n){
+                    ans[i] = nums1[first];
+                    first++;
+                    continue;
+                }
+                if(first >= m){
+                    ans[i] = nums2[second];
+                    second++;
+                    continue;
+                }
+                if(nums1[first] > nums2[second]){
+                    ans[i] = nums2[second];
+                    second++;
+                    continue;
+                }
+                if(nums1[first] < nums2[second]){
+                    ans[i] = nums1[first];
+                    first++;
+                    continue;
+                }
+                if(nums1[first] == nums2[second]){
+                    ans[i] = nums1[first];
+                    ans[i+1] = nums1[first];
+                    i++;
+                    first++;
+                    second++;
+                    continue;
+                }
+
+            }
+            nums1 = ans;
+        }
+       
+
+    }
+};
