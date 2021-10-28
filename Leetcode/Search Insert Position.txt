@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int min = 0;
+        int end = nums.size()-1;
+        if(nums[0] > target)return 0;
+        if(nums[end] < target)return end+1;
+        while(min <= end){
+            int guess = (min + ((end - min)/2));
+            if(nums[guess] == target){
+                return guess;
+            }
+            if(nums[guess] < target){
+                min = guess + 1;
+            }
+            
+            if(nums[guess] > target){
+                end = guess - 1;
+            }
+            
+        } 
+        if (target < nums[min]) { 
+        return min; 
+        }
+        if (target > nums[end]) { 
+        return end+1; 
+        }
+        return -1;
+    }
+};
