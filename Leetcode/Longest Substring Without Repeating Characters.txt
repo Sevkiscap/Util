@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int start = 0;
+        int end = 0;
+        int max = 0;
+        unordered_set<char> hashSet;
+        while(end < s.length()){
+            if(hashSet.find(s[end]) == hashSet.end()){
+                hashSet.insert(s[end]);
+                max = max < hashSet.size() ? hashSet.size() : max;
+                end++;
+            }
+            else{
+                hashSet.erase(s[start]);
+                start++;
+            }
+        }
+        return max;
+    }
+};
