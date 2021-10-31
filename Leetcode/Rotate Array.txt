@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k = k % nums.size();
+        reverse(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.begin() + k);
+        reverse(nums.begin()+k,nums.end());
+            
+    }
+    /*void reverse(vector<int>& nums, int start, int end){ /*before using the built in Function, I solved the problem with the usage of my own reverse function! */
+        /*while(start < end){
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start ++;
+            end--;
+        }
+    }*/
+};
